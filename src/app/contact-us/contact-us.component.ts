@@ -18,6 +18,13 @@ export class ContactUsComponent implements OnInit {
     return !!this.contactService.get();
   }
 
+  get shouldSubmit(): boolean {
+    if (!this.contact.email === undefined || this.contact.email === '') {
+      return false;
+    }
+    return this.contact.email !== undefined;
+  }
+
   get name(): string {
     if (!this.contact || !this.contact.email) {
       return '';
@@ -46,6 +53,9 @@ export class ContactUsComponent implements OnInit {
   }
 
   onSubmit(form: NgForm): void {
+    if (form.value.email === undefined) {
+      return;
+    }
     this.contactService.save(form.value as Contact);
   }
 
@@ -55,16 +65,6 @@ export class ContactUsComponent implements OnInit {
 
   phoneMask(): string {
     return '(00) 00000-0000';
-  }
-
-  keyPressNumbers(event: any) {
-    var charCode = (event.which) ? event.which : event.keyCode;
-    if ((charCode < 48 || charCode > 57)) {
-      event.preventDefault();
-      return false;
-    } else {
-      return true;
-    }
   }
 
 
