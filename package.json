@@ -25,6 +25,7 @@
     "bootstrap-scss": "^5.2.1",
     "chart.js": "^3.1.1",
     "mdb-angular-ui-kit": "^2.3.0",
+    "ngx-mask": "^14.2.3",
     "rxjs": "~7.5.0",
     "scss-scaffold": "^0.0.5",
     "tslib": "^2.3.0",

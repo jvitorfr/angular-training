@@ -15,13 +15,16 @@ import {MatDividerModule} from "@angular/material/divider";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {MatButtonModule} from "@angular/material/button";
 import {MdbCarouselModule} from 'mdb-angular-ui-kit/carousel';
+import {NgxMaskModule} from "ngx-mask";
+import {OnlyNumberDirective} from "./directives/OnlyNumberDirective";
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ContactUsComponent,
-    ProductsComponent
+    ProductsComponent,
+    OnlyNumberDirective,
   ],
   imports: [
     AppRoutingModule,
@@ -34,7 +37,8 @@ import {MdbCarouselModule} from 'mdb-angular-ui-kit/carousel';
     MatDividerModule,
     MatProgressBarModule,
     MatButtonModule,
-    MdbCarouselModule
+    MdbCarouselModule,
+    NgxMaskModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -13,9 +13,23 @@ export class ContactUsComponent implements OnInit {
 
   contact: Contact;
 
+
+  get hasContact(): boolean {
+    return !!this.contactService.get();
+  }
+
+  get name(): string {
+    if (!this.contact || !this.contact.email) {
+      return '';
+    }
+
+    return this.contact.email.split('@')[0].toUpperCase();
+  }
+
   constructor(private contactService: ContactService) {
     this.contact = new Contact();
   }
+
 
   ngOnInit(): void {
     const mainFooter = document.getElementById('main-footer');
@@ -35,16 +49,22 @@ export class ContactUsComponent implements OnInit {
     this.contactService.save(form.value as Contact);
   }
 
-  get hasContact(): boolean {
-    return !!this.contactService.get();
+  clearLocalStorage(): void {
+    localStorage.clear();
   }
 
-  get name(): string {
-    if (!this.contact || !this.contact.email) {
-      return '';
-    }
+  phoneMask(): string {
+    return '(00) 00000-0000';
+  }
 
-    return this.contact.email.split('@')[0].toUpperCase();
+  keyPressNumbers(event: any) {
+    var charCode = (event.which) ? event.which : event.keyCode;
+    if ((charCode < 48 || charCode > 57)) {
+      event.preventDefault();
+      return false;
+    } else {
+      return true;
+    }
   }
 
 
