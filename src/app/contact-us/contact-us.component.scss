@@ -1,0 +1,28 @@
+
+.contact-us-component {
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    vertical-align: center;
+    margin-top: 30%;
+    width: 500px;
+
+    //@include media-breakpoint-up(sm) {
+    //   width: 300px;
+    //}
+    //@include media-breakpoint-up(md) {
+    //  width: 1200px;
+    //}
+    //@include media-breakpoint-up(lg) {
+    //  width: 1200px;
+    //}
+    //@include media-breakpoint-up(xl) {
+    //  width: 1200px;
+    //}
+    //@include media-breakpoint-up(xxl) {
+    //  width: 1200px;
+    //}
+  }
+}
+

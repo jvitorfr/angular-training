@@ -1,0 +1,20 @@
+<div class="products" *ngIf="!hasContact">
+  <h1> Conheça nossos produtos </h1>
+  <mdb-carousel [controls]="true" [indicators]="true" [animation]="'fade'">
+    <mdb-carousel-item *ngFor="let product of products">
+      <img class="d-block w-100" mat-card-image src="{{product.img}}" alt="crossX">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>{{product.title}}</h5>
+        <p>{{product.description}}</p>
+        <button mat-button>
+          <mat-icon aria-hidden="false" (click)="like(product.title)">thumb_up</mat-icon>
+        </button>
+        <button mat-button>
+          <mat-icon aria-hidden="false" (click)="dislike(product.title)">thumb_down</mat-icon>
+        </button>
+      </div>
+
+    </mdb-carousel-item>
+  </mdb-carousel>
+
+</div>

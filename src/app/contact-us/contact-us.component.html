@@ -1,0 +1,33 @@
+<section class="contact-us-component ">
+  <h1 *ngIf="hasContact" class="display-4 text-center">
+    Olá "{{ name }}"
+  </h1>
+  <h1 *ngIf="!hasContact" class="display-4">
+    Gostou de algo? Contate-nos.
+  </h1>
+  <h1 *ngIf="hasContact" class="text-center">
+    Entraremos em contato em breve.
+  </h1>
+
+  <img *ngIf="hasContact" class="center" src="/assets/gifs/thumbs-up.gif" type="gif"/>
+
+  <form *ngIf="!hasContact" #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+    <div class="form-group">
+      <input name="email" #email="ngModel" [(ngModel)]="contact.email" class="form-control" type="email"
+             placeholder="email"/>
+      <div *ngIf="email.invalid && email.touched" class="validation-error"> this field is required</div>
+    </div>
+    <div class="form-group">
+      <input name="phone" #phone="ngModel" [(ngModel)]="contact.phone" class="form-control" placeholder="telefone"/>
+    </div>
+
+    <div class="form-group">
+      <textarea name="description" #description="ngModel" [(ngModel)]="contact.description" class="form-control"
+                placeholder="Fique a vontade para deixar um comentário."></textarea>
+    </div>
+    <div class="form-group">
+      <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-primary "> Contatar</button>
+    </div>
+  </form>
+
+</section>
